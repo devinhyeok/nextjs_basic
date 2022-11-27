@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { prefix } from "../config/config";
 
 export default function NavBar() {
     const router = useRouter();
