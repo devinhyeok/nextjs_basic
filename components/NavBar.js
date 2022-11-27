@@ -8,11 +8,11 @@ export default function NavBar() {
         <nav>
             <img src={`${prefix}/vercel.svg`} />
             <div>
-                <Link legacyBehavior href={`${prefix}/`} >
-                    <a className={router.pathname === `${prefix}/` ? "active" : ""}>Home</a>
+                <Link legacyBehavior href="/" >
+                    <a className={router.pathname === "/" ? "active" : ""}>Home</a>
                 </Link>
-                <Link legacyBehavior href={`${prefix}/about`}>
-                    <a className={router.pathname === `${prefix}/about` ? "active" : ""}>About</a>
+                <Link legacyBehavior href="/about">
+                    <a className={router.pathname === "/about" ? "active" : ""}>About</a>
                 </Link>
             </div>
             <style jsx>{`
