@@ -8,10 +8,10 @@ export default function NavBar() {
             <img src="/vercel.svg" />
             <div>
                 <Link legacyBehavior href="/" >
-                    <a className={router.pathname === "/" ? "active" : ""}>Home</a>
+                    <a className={router.pathname === `${process.env.PUBLIC_URL}/` ? "active" : ""}>Home</a>
                 </Link>
                 <Link legacyBehavior href="/about">
-                    <a className={router.pathname === `${process.env.PUBLIC_URL}/about` ? "active" : ""}>About</a>
+                    <a className={router.pathname === `/about` ? "active" : ""}>About</a>
                 </Link>
             </div>
             <style jsx>{`
