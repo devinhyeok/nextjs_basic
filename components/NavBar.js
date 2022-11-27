@@ -7,10 +7,10 @@ export default function NavBar() {
         <nav>
             <img src="/vercel.svg" />
             <div>
-                <Link legacyBehavior href="/" >
-                    <a className={router.pathname === `${process.env.PUBLIC_URL}/` ? "active" : ""}>Home</a>
+                <Link legacyBehavior href={`${process.env.PUBLIC_URL}/`} >
+                    <a className={router.pathname === `/` ? "active" : ""}>Home</a>
                 </Link>
-                <Link legacyBehavior href="/about">
+                <Link legacyBehavior href={`${process.env.PUBLIC_URL}/about`}>
                     <a className={router.pathname === `/about` ? "active" : ""}>About</a>
                 </Link>
             </div>
@@ -41,6 +41,6 @@ export default function NavBar() {
                     gap: 10px;
                 }
             `}</style>
-        </nav>
+        </nav >
     );
 }
