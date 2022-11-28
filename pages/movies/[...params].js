@@ -12,11 +12,3 @@ export default function Detail({ params }) {
         </div>
     );
 }
-
-export function getServerSideProps({ params: { params } }) {
-    return {
-        props: {
-            params,
-        },
-    }
-}
