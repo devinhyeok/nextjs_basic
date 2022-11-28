@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Seo from "../components/Seo";
-const API_KEY = process.env.NODE_ENV === "production" ? process.env.API_KEY : process.env.NEXT_PUBLIC_API_KEY
+const API_KEY = process.env.NODE_ENV === "production" ? "91bdbdba0633de9e766afe2f5b8b2316" : process.env.NEXT_PUBLIC_API_KEY
 console.log(API_KEY);
 
 export default function Home() {
