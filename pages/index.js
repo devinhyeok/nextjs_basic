@@ -1,10 +1,17 @@
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import Seo from "../components/Seo";
+import { useRouter } from 'next/router';
+
+// gh-pages 배포 환경에서 환경변수를 숨길 방법이 없음
 const API_KEY = process.env.NODE_ENV === "production" ? "91bdbdba0633de9e766afe2f5b8b2316" : process.env.NEXT_PUBLIC_API_KEY
-console.log(API_KEY);
 
 export default function Home() {
     const [movies, setMovies] = useState([]);
+    const router = useRouter();
+    const onClick = (id, title) => {
+        router.push(`/movies/${title}/${id}`);
+    }
     useEffect(() => {
         (async () => {
             // 외부 API 가져오기
@@ -22,9 +29,13 @@ export default function Home() {
             <Seo title="Home" />
             {!movies && <h4>Loading..</h4>}
             {movies?.map((movie) => (
-                <div className="movie" key={movie.id}>
+                <div onClick={() => onClick(movie.id, movie.original_title)} className="movie" key={movie.id}>
                     <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
-                    <h4>{movie.original_title}</h4>
+                    <h4>
+                        <Link href={`/movies/${movie.original_title}/${movie.id}`}>
+                            {movie.original_title}
+                        </Link>
+                    </h4>
                 </div>
             ))}
             <style jsx>{`
@@ -33,6 +44,9 @@ export default function Home() {
                     grid-template-columns: 1fr 1fr;
                     padding: 20px;
                     gap: 20px;
+                }
+                .movie {
+                    cursor: pointer;
                 }
                 .movie img {
                     max-width: 100%;
