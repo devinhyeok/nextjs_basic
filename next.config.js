@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 const debug = process.env.NODE_ENV !== "production";
 const repository = "nextjs_basic";
-const API_KEY = process.env.API_KEY;
 
 const nextConfig = {
   reactStrictMode: true,

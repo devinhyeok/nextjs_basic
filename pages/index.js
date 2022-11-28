@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import Seo from "../components/Seo";
+const API_KEY = process.env.NODE_ENV === "production" ? process.env.API_KEY : process.env.NEXT_PUBLIC_API_KEY
+console.log(API_KEY);
 
 export default function Home() {
     const [movies, setMovies] = useState([]);
@@ -8,7 +10,7 @@ export default function Home() {
             // 외부 API 가져오기
             const { results } = await (
                 await fetch(
-                    `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US&page=1`
+                    `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`
                 )
             ).json();
             console.log(results);
