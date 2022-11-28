@@ -7,6 +7,7 @@ export default function Home() {
         (async () => {
             // 외부 API 가져오기
             const { results } = await (await fetch(`/api/movies`)).json();
+            console.log(results);
             setMovies(results);
         })();
     }, []);
