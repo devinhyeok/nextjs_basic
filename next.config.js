@@ -17,7 +17,7 @@ const nextConfig = {
   async rewrites() {
     return [{
       source: "/api/movies",
-      destination: `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`,
+      destination: `https://api.themoviedb.org/3/movie/popular?api_key=91bdbdba0633de9e766afe2f5b8b2316&language=en-US&page=1`,
     }];
   }
 }

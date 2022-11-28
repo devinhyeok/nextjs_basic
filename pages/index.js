@@ -6,7 +6,11 @@ export default function Home() {
     useEffect(() => {
         (async () => {
             // 외부 API 가져오기
-            const { results } = await (await fetch(`/api/movies`)).json();
+            const { results } = await (
+                await fetch(
+                    `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US&page=1`
+                )
+            ).json();
             console.log(results);
             setMovies(results);
         })();
